@@ -10,18 +10,22 @@
         <meta name="viewport" content="width=device-width" />
         <title>Inbox messages</title>
         <script src="js/script.js"></script>
-        <!--<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
     </head>
     <body class="p-1">
         <h3 class="text-center">Inbox</h3>
+        <div style="margin:auto; width:fit-content">
             @foreach (var item in Model)
             {
                 <input class="message" id="@item.Id" type="checkbox">
-                <label id="@item.Id">@item.Title</label><br>
+                <label id="@item.Id"><b>@item.Title</b> @item.Text</label><br>
             }
-        <form name="deletingForm" onsubmit="return onDeleteSelected()" asp-action="DeleteMessages">   
-            <button class="btn btn-primary">Delete selected</button>
-        </form>
-    
+            <br />
+            <div class="text-center">
+                <form name="deletingForm" onsubmit="return onDeleteSelected()" asp-action="DeleteMessages">   
+                    <button class="btn btn-primary">Delete selected</button>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
